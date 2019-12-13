@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+​
+	<script type="text/javascript">
+		let word='chest'
+		const url = `https://dictionaryapi.com/api/v3/references/learners/json/${word}?key=9c3a9b28-9b91-43bf-bac6-d39c1a35f8d3`;
+		fetch(url, {
+			'Content-Type': 'application/json'
+		})
+
+		.then((response) => {
+			console.log(response);
+			return response.json()
+		})
+
+		.then((data) => {
+			
+			console.log(data[0].shortdef[1]);
+			console.log(data[0]);
+			//console.log(data);
+			//get first letter of that name. Use Substring Strore in variable (firstLetter)
+			let fullWord = data[0].hwi.prs[0].sound.audio;
+			console.log(fullWord.substring(0,1));
+			let firstLetter = fullWord.substring(0,1);
+			//build URL adding in FirstLetter and FullName
+			let url2 = `https://media.merriam-webster.com/soundc11/${firstLetter}/${fullWord}.wav`
+			//ex.  `string ${variableName} more string`
+			console.log(url2);
+
+			let partOfSpeech = document.querySelector("#partOfSpeech");
+			partOfSpeech.innerHTML = data[0].fl;
+
+			//let audioPlayer = document.querySelector("#audioPlayer");
+
+			// //function to play video
+			// let playAudio = () => {
+			// 	audioPlayer.play();
+			// }
+
+			//Load and play from audio from audio tag
+			// let loadAudio = () => {
+			// 	console.log(url2);
+			// 	//document.querySelector("#wordAudio").src = url2;
+			// 	//audioPlayer.load();
+			// 	//playAudio();
+
+			// }
+			
+			//loadAudio()
+
+
+			//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+
+
+		});
+
+		audio.contro
+
+
+
+	</script>
+​
+	<style type="text/css">
+		
+		body{
+		
+		margin: 0;
+        border: 0;
+        margin-bottom: 0;
+        font-family: 'Raleway', sans-serif;
+		font-weight: 200;
+      	}
+
+		.navbar {
+		  width: 100%;
+		  background-image: linear-gradient(to bottom right, #82A4FB, #F7CAC9);
+		  overflow: auto;
+		  position: -webkit-sticky; /* Safari */
+		  position: sticky;
+		  top: 0;
+		}
+
+		.navbar a {
+		  float: left;
+		  padding: 12px;
+		  color: white;
+		  text-decoration: none;
+		  font-size: 17px;
+		  width: 23%; /* Four links of equal widths */
+		  text-align: center;
+		  position: -webkit-sticky; /* Safari */
+		  position: sticky;
+		  top: 0;
+		}
+
+		.navbar a:hover {
+		  background-color: #DBD4FF;
+		}
+
+		.navbar a.active {
+		  background-color: #B4CAFB;
+		}
+
+		@media screen and (max-width: 500px) {
+		  .navbar a {
+		    float: none;
+		    display: block;
+		    width: 100%;
+		    text-align: left;
+		  }
+		}
+		h1, p{
+		      margin-left: 170px;
+		      margin-top: 80px;
+		      line-height: 200%;
+		      font-family: 'Raleway', sans-serif;
+		    }
+
+		section{
+			margin-left: 170px;
+			margin-top: 80px;
+			text-align: left;
+		}
+
+		li {
+			line-height: 200%;
+		}
+
+		li:hover {
+			font-weight:bold;
+		}
+
+		.date {
+			color: gray;
+			font-style: italic;
+		}
+		
+
+		.body {
+  		  height: 100%;
+		}
+
+		.sidebar {
+		  height: 100%;
+		  width: 500px;
+		  float:right;
+		  z-index: 1;
+		  top: 0;
+		  left: 0;
+		  background-color: #edefff;
+		  overflow-x: hidden;
+		  padding-top: 16px;
+		  line-height: 1.5;
+		  padding-left: 30;
+		}
+
+		.main {
+		  margin-left: 5px;
+		  padding: 0px 10px;
+		  line-height: 1.6;
+		}
+
+		mark {
+			  background-color: #DBD4FF;
+			  color: black;
+			  
+			}
+
+
+
+
+	</style>
+</head>
+<body>
+<div class="navbar">
+  <a href="file:///Users/Cateyes/Desktop/Frame1.html">Home</a>  
+  <a href="#">Articles</a>
+  <a class="active" href="#">My List</a>
+  <a href="#">Sign Out</a>
+</div>
+
+<div class="sidebar">
+<font size="20">Flagship</font>
+<br>
+
+	<audio controls>
+			  <source src="https://media.merriam-webster.com/soundc11/f/flagsh01.wav" type="audio/ogg">
+			  <source src="https://media.merriam-webster.com/soundc11/f/flagsh01.wav" type="audio/mpeg">
+			</audio>
+
+
+<br>
+<b>Definition</b>
+<br>
+<div id="partOfSpeech"></div>
+<br>
+1: the ship that carries the commander of a fleet or subdivision of a fleet and flies the commander's flag
+<br>
+2: the finest, largest, or most important one of a group of things (such as products, stores, etc.) —often used before another noun
+the company's flagship store
+The traveling media crew comprises seven beat writers and a reporter from WFAN, the team's flagship station and the granddaddy of all-sports radio.
+— Hank Hersch
+<br>
+<br>
+<b>Examples of flagship in a sentence</b>
+<br>
+<br>
+The flagship of the Atlantic fleet
+<br>
+<br>
+<u>Recent Examples on the Web</u>
+<br>
+<br>
+Despite CBA’s struggles, Widmer’s flagship Hefe remains the best-selling, most-widely recognizable craft beer in Oregon, leading the way to keep Widmer among the 50 highest-selling breweries in the nation.
+— Andre Meunier, oregonlive, "Widmer parent Craft Brew Alliance could be ‘blown up and rebuilt,’ CEO says," 5 Sep. 2019
+<br>
+<br>
+Seismic safety is a particular issue for the UC system’s flagship Berkeley campus, the oldest of its 10 campuses established in 1868 during the Reconstruction era after the Civil War.
+— Angela Ruggiero, The Mercury News, "Six UC Berkeley buildings pose serious life safety risk in earthquake," 29 Aug. 2019
+<br>
+<br>
+</div>
+
+<div class="main">
+	<section>
+		<font size="20">My List</font>
+			<ol type="1">
+			  <li><mark>Flagship</mark></li> 
+			  <li>Heritage</li>
+			  <li>Erudite</li>
+			  <li>Bandwidth</li>
+			  <li>Rigorous</li>
+			  <li>Discourse</li>
+			  <li>Discrepancy</li>
+			  <li>Amalgamation</li>	  
+			  <li>Proximity</li>
+			  <li>Interim</li>	
+			  <li>Oxymoron</li>	
+			  <li>Delinquent</li>		
+			  <li>Ambivalence</li>	
+			</ol>
+	</section>
+</div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
